@@ -1,0 +1,9 @@
+{
+  "name": "api-rest",
+  "version": "1.0.0",
+  "description": "Criando API REST com Node.js",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Cristiano Feitosa",
+  "license": "ISC"
+}
