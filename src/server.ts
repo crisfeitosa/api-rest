@@ -1,3 +1,5 @@
+import express from 'express';
+
 function sum(a: number, b: number) {
   return a + b;
 };
