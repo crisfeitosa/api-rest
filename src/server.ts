@@ -1,6 +1,6 @@
-function sum(a, b) {
+function sum(a: number, b: number) {
   return a + b;
 };
 
-const result: number = sum(5, 3);
-console.log("Resultado da soma", result);
+const sumResult: number = sum(5, 3);
+console.log("Resultado da", sumResult);
