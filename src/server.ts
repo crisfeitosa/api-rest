@@ -4,4 +4,4 @@ const PORT = 3333
 
 const app = express()
 
-app.listen(PORT, () => console.log(`Server listening on ${PORT}`));
+app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
