@@ -18,6 +18,8 @@ class ProductsController {
   create(request: Request, response: Response) {
     const { name, price } = request.body;
 
+    throw new Error("ERROR DE EXEMPLO!");
+
     response.status(201).json({ name, price, user_id: request.user_id });
   }
 }
