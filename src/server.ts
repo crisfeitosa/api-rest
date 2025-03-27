@@ -16,21 +16,24 @@ app.use(routes);
  * 500 (Internal Server Error): Erro interno do servidor
  */
 
-app.use((error: any, request: Request, response: Response, _: NextFunction) => {
-  if(error instanceof AppError) {
-    return response.status(error.statusCode).json({ message: error.message });
+app.use((error: Error | AppError | ZodError, request: Request, response: Response, next: NextFunction): void => {
+  if (error instanceof AppError) {
+    response.status(error.statusCode).json({ message: error.message });
+    return;
   }
 
-  if(error instanceof ZodError) {
-    return response
-      .status(400)
-      .json({
-        message: "Validation error!",
-        issues: error.format()
+  if (error instanceof ZodError) {
+    response.status(400).json({
+      message: "Validation error!",
+      issues: error.format(),
     });
+
+    return;
   }
 
-  response.status(500).json({ message: error.message });
-})
+  response.status(500).json({ message: "Internal Server Error" });
+  return;
+});
+
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));

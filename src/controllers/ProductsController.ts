@@ -20,7 +20,7 @@ class ProductsController {
   create(request: Request, response: Response) {
     const bodySchema = z.object({
       name: z.string(),
-      price: z.number(),
+      price: z.number().nullish(),
     });
 
     const { name, price } = bodySchema.parse(request.body);
