@@ -19,7 +19,7 @@ app.get("/products", (request, response) => {
 app.post("/products", myMiddleware, (request, response) => {
   const { name, price } = request.body;
 
-  response.status(201).json({ name, price });
+  response.status(201).json({ name, price, user_id: request.user_id });
 });
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
